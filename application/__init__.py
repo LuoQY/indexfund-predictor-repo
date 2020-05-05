@@ -158,6 +158,10 @@ def predict():
         d = {'CPrice': [-0.04104943868], 'CVolume': [0.3312339206], 'CAve10Price': [0.007087158069], 'CAve10Volume': [-0.05010947309],
         'CStdev10Price': [-0.097381469], 'CStdev10Volume': [-0.06604462644], 'CBollinger': [-0.06604324361], 'Oscillator': [0.3023350626],
         'Cases_roc': [0.133920031], 'Deaths_roc': [0.228246837]}
+    else:
+        d = {'CPrice': [-0.044142], 'CVolume': [-0.094452], 'CAve10Price': [0.002936], 'CAve10Volume': [-0.037316],
+        'CStdev10Price': [-0.016010], 'CStdev10Volume': [0.0085764], 'CBollinger': [0.0085764], 'Oscillator': [0.562311],
+        'Cases_roc': [0.133920], 'Deaths_roc': [0.228246]}
 
     X_pred  = sc_loaded.transform(pd.DataFrame(d))
 
