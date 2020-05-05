@@ -133,7 +133,7 @@ pickle.dump(reg_index, open(model_file, 'wb'))
 reg_loaded = pickle.load(open(model_file, 'rb'))
 sc_loaded = pickle.load(open(sc_file, 'rb'))
 
-
+'''
 #create api
 @app.route('/api/', methods=['GET', 'POST'])
 @app.route('/api',methods=['GET', 'POST'])
@@ -155,7 +155,20 @@ def predict():
     # 1 = UP, 0 = Down, probs = percentage of UP
     # print(y_pred[0], pred_probs[:,1][0])
 
-    return Response(json.dumps(int(y_pred[0])))
+    return Response(json.dumps(int(y_pred[0])))'''
+    
+#create api
+@app.route('/api/', methods=['GET', 'POST'])
+@app.route('/api',methods=['GET', 'POST'])
+def predict():
+    # Get the data from POST request
+    data = request.get_json(force=True)
+    requestData = [data["sepallength"], data["sepalwidth"], data["petallength"], data["petalwidth"]]
+    requestData = np.array([requestData])
+
+    # Make prediction using model 
+    prediction = rfc_model.predict(requestData)
+    return Response(json.dumps(int(prediction[0])))
 
 if __name__ == '__main__':
    app.run()
