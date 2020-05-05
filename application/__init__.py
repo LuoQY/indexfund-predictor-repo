@@ -8,6 +8,7 @@ app = Flask(__name__)
 def predict():
     data = request.get_json(force=True)
     requestData = [data['...']]
+    #print("hello world")
 
 
 if __name__ == '__main__':
