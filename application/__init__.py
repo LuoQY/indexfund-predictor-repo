@@ -156,9 +156,9 @@ def predict():
         'CStdev10Price': [-0.014372], 'CStdev10Volume': [-0.125876], 'CBollinger': [-0.1258717625], 'Oscillator': [0.5423211169],
         'Cases_roc': [0.133920031], 'Deaths_roc': [0.228246837]}
     elif fund == "Russell" :
-        d = {'CPrice': [-0.0216190243263219], 'CVolume': [-0.9938248993418590], 'CAve10Price': [0.009329569077729750], 'CAve10Volume': [0.0002041941301411670],
-        'CStdev10Price': [0.113523486032923], 'CStdev10Volume': [-0.0012990517266101600], 'CBollinger': [-0.001298752213400150], 'Oscillator': [0.92555832743259],
-        'Cases_roc': [0.054933928], 'Deaths_roc': [0.076092269]}
+        d = {'CPrice': [0.05175159126], 'CVolume': [-0.2953863336], 'CAve10Price': [0.002002590614], 'CAve10Volume': [-0.04323623083],
+        'CStdev10Price': [0.1098016506], 'CStdev10Volume': [-0.06751086322], 'CBollinger': [-0.06750879135], 'Oscillator': [1],
+        'Cases_roc': [0.079362524], 'Deaths_roc': [0.148585274]}
     #else:
     #    d = {'CPrice': [-0.044142], 'CVolume': [-0.094452], 'CAve10Price': [0.002936], 'CAve10Volume': [-0.037316],
     #    'CStdev10Price': [-0.016010], 'CStdev10Volume': [0.0085764], 'CBollinger': [0.0085764], 'Oscillator': [0.562311],
