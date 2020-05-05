@@ -140,12 +140,24 @@ sc_loaded = pickle.load(open(sc_file, 'rb'))
 def predict():
 
     data = request.get_json(force=True)
-    requestData = [data["sepallength"], data["sepalwidth"], data["petallength"], data["petalwidth"]]
-    requestData = np.array([requestData])
-
-    d = {'CPrice': [-0.026509], 'CVolume': [0.245612], 'CAve10Price': [0.005099], 'CAve10Volume': [0.112444],
-    'CStdev10Price': [-0.022922], 'CStdev10Volume': [0.120680], 'CBollinger': [0.120655], 'Oscillator': [0.337771],
-    'Cases_roc': [0.133920], 'Deaths_roc': [0.228247]}
+    fund = data['fund']
+    d = None
+    if fund == 'sp' :
+        d = {'CPrice': [-0.044142], 'CVolume': [-0.094452], 'CAve10Price': [0.002936], 'CAve10Volume': [-0.037316],
+        'CStdev10Price': [-0.016010], 'CStdev10Volume': [0.0085764], 'CBollinger': [0.0085764], 'Oscillator': [0.562311],
+        'Cases_roc': [0.133920], 'Deaths_roc': [0.228246]}
+    elif fund == 'dow' :
+        d = {'CPrice': [-0.026509], 'CVolume': [0.245612], 'CAve10Price': [0.005099], 'CAve10Volume': [0.112444],
+        'CStdev10Price': [-0.022922], 'CStdev10Volume': [0.120680], 'CBollinger': [0.120655], 'Oscillator': [0.337771],
+        'Cases_roc': [0.133920], 'Deaths_roc': [0.228247]}
+    elif fund == "nasdap" :
+        d = {'CPrice': [-0.028756], 'CVolume': [0.035172], 'CAve10Price': [0.0030137], 'CAve10Volume': [0.119010],
+        'CStdev10Price': [-0.014372], 'CStdev10Volume': [-0.125876], 'CBollinger': [-0.1258717625], 'Oscillator': [0.5423211169],
+        'Cases_roc': [0.133920031], 'Deaths_roc': [0.228246837]}
+    elif fund == "russell" :
+        d = {'CPrice': [-0.04104943868], 'CVolume': [0.3312339206], 'CAve10Price': [0.007087158069], 'CAve10Volume': [-0.05010947309],
+        'CStdev10Price': [-0.097381469], 'CStdev10Volume': [-0.06604462644], 'CBollinger': [-0.06604324361], 'Oscillator': [0.3023350626],
+        'Cases_roc': [0.133920031], 'Deaths_roc': [0.228246837]}
 
     X_pred  = sc_loaded.transform(pd.DataFrame(d))
 
