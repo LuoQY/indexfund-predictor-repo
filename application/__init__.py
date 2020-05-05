@@ -172,7 +172,7 @@ def predict():
     # 1 = UP, 0 = Down, probs = percentage of UP
     # print(y_pred[0], pred_probs[:,1][0])
 
-    return Response(json.dumps(int(y_pred[0])))
+    return Response(json.dumps(pred_probs[:,1][0]))
 
 if __name__ == '__main__':
    app.run()
